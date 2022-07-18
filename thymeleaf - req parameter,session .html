@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>기본 객체</h1>
+	<ul>
+		<li>request = <span th:text="${#request}"></span> </li>
+		<li>response = <span th:text="${#response}"></span> </li>
+		<li>session = <span th:text="${#session}"></span> </li>
+	</ul>
+	
+	<h1>편의 객체</h1>
+	<ul>
+		<li>Request parameter = <span th:text="${#httpServletRequest.getParameter('paramData')}"></span> </li>
+		<li>Request parameter2 = <span th:text="${#request.getParameter('paramData')}"></span> </li>
+		<!--
+			 #httpServletRequest.getParameter("data"), #request.getParameter("data")
+			 처럼 불편하게 접근해야 하는 점을 해결하기 위해 편의 객체 -> param
+		 -->
+		<li>Request parameter3 = <span th:text="${param.paramData}"></span> </li>
+		<!-- 
+			HTTP 세션 접근을 위한 편의 객체 : session
+		 -->
+		<li>session = <span th:text="${session.sessionData}"></span> </li>
+		<!-- 
+			스프링 빈에 직접 접근이 가능하다
+		 -->
+		<li>spring bean = <span th:text="${@helloBean.hello('Spring!!!')}"></span> </li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
