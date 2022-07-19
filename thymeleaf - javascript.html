@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 태멘 : 페이지소스보기 확인하면서 하기 -->
+	<script>
+		/* 태멘 : username = DTO에 있는 User에 선언한 username을 username라고 선언  
+		 *       user 	 =   컨트롤러 -> model에 할당한 User(from DTO) 객체 
+		 *		"" 를 해줌으로 걍 있는 문자열 그대로 출력 
+		 */		 
+		let username="[[${user.username}]]";
+		 /* 태멘 : 위와 마찬가지 */
+		let age=[[${user.age}]];
+		
+		//자바스크립트 내추럴 템플릿
+		/* 태멘 : 주석처리된 요소는 생략출력됨 */
+		let username2 = /*[[${user.username}]]*/  "test username";
+		
+		// 객체
+		/* 태멘 : 객체 경로가 표시된다. */
+		//let user = [[${user}]]
+	</script>
+	
+		
+		
+	
+	<!-- 태멘 : 타임리프 자바스크립트 선언 -->
+	<script th:inline="javascript">
+		
+		let username_th=[[${user.username}]];
+		let age_th=[[${user.age}]];
+		
+		//자바스크립트 내추럴 템플릿
+		/* 태멘 : 주석처리 되어있어도 불러온 객체값을 우선으로 출력?? */
+		let username2_th = /*[[${user.username}]]*/  "test username";
+		
+		// 객체
+		/* 태멘 : 객체 파라미터? 가 상세히 표시됨 */
+		let user_th = [[${user}]]
+	</script>
+	
+	<!-- 태멘 : js내에서 타임리프 태그 선언 -->
+	<script th:inline="javascript">
+					/* 태멘 : users(User 배열객체)를 기준으로 user의 카운트(반복문)를 선언?? */
+		 [# th:each="user, stat : ${users}"]
+		 				/* 태멘 : 카운트시작?  */
+			 let user[[${stat.count}]] = [[${user}]];
+		 [/]
+	</script>
+
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
