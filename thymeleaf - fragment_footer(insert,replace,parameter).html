@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<footer th:fragment="copy">
+		footer자리입니다.
+	</footer>
+	
+	<!-- 태멘 : 파라미터 포함하는 name?? 선언 -->
+	<footer th:fragment="copyParam(param1, param2)">
+		<p>파라미터 자리 입니다.</p>
+		<p th:text="${param1}"></p>
+		<p th:text="${param2}"></p>
+		
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>부분 포함</h1>
+	
+	<!-- insert : div태그 안에 들감 -->
+	<h2>부분 포함 insert</h2>					<!-- :: 불러오는 기능  -->
+	<!-- 태멘 : 아래 경로에서 풋터의 파편("copy") 불러와서 풋터 태그(footer.html에 
+	 있음)를 여기 div태그에 끼어넣는 기능  -->
+	<div th:insert="~{template/fragment/footer :: copy}"></div>
+	
+	
+	<!-- replace :  div태그 자체를 교체해버린거 -->
+	<h2>부분 포함 replace</h2>
+	<!-- 태멘 : 아래 경로에서 풋터의 파편("copy") 불러와서 풋터 태그(footer.html에 
+	 있음)를 여기 div와 교체하는 기능  -->
+	<div th:replace="~{template/fragment/footer :: copy}"></div>
+	
+	<h2>부분 포함 단순 표현식</h2>
+	<!-- 태멘 : 단순식으로도 가능 -->
+	<div th:replace="template/fragment/footer :: copy"></div>
+	
+	<h1>파라미터 사용</h1>
+	<!-- 태멘 : 아래 경로에서 풋터의 파편("copyParam") 불러와서 풋터 태그(footer.html에 
+	 있음)에 파라미터를 입혀와서 할당해주는 기능  -->
+	<div th:replace="~{template/fragment/footer :: copyParam('파람1', '파람2')}"></div>
+</body>
+</html>
+
+
+
+
